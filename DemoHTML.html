@@ -47,15 +47,31 @@
 
         // https://ruienyuski.github.io/git_test/data.json
         $.ajax({
-        url: "https://futureplaybook.github.io/demoHTML/data.json",
-            type:"get",
-            dataType:'json',  
-            success: function(data){
-            console.log(data);
-            },
-            error:function() {
-            console.log("err");
-            }
+            url: "https://futureplaybook.github.io/demoHTML/data.json",
+                type:"get",
+                dataType:'json',  
+                success: function(data){
+                console.log(data);
+                },
+                error:function() {
+                console.log("err");
+                }
+            });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var options = {
+                chart: {
+                    type: 'spline'
+                },
+                series: [{}]
+            };
+            Highcharts.ajax({  
+                url: 'https://futureplaybook.github.io/demoHTML/data.json',  
+                success: function(data) {
+                    options.series[0].data = data;
+                    Highcharts.Chart('container', options);
+                }  
+            });
         });
 
 
