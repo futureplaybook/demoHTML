@@ -4,12 +4,10 @@
         <meta charset="utf-8">
         <title>Our superheroes</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/data.js"></script>
-        <script src="https://code.highcharts.com/modules/series-label.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
         <script>
             async function populate() {
 
@@ -58,19 +56,26 @@
                 }
             });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var options = {
-                chart: {
-                    type: 'spline'
+        Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
+            // Create the chart
+            Highcharts.stockChart('container', {
+
+
+                rangeSelector: {
+                    selected: 1
                 },
-                series: [{}]
-            };
-            Highcharts.ajax({  
-                url: 'https://futureplaybook.github.io/demoHTML/data.json',  
-                success: function(data) {
-                    options.series[0].data = data;
-                    Highcharts.Chart('container', options);
-                }  
+
+                title: {
+                    text: 'AAPL Stock Price'
+                },
+
+                series: [{
+                    name: 'AAPL',
+                    data: data,
+                    tooltip: {
+                        valueDecimals: 2
+                    }
+                }]
             });
         });
 
