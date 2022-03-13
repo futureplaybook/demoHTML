@@ -11,7 +11,7 @@
         <script>
             async function populate() {
 
-            const requestURL = 'https://futureplaybook.github.io/demoHTML/j.json';
+            const requestURL = 'https://futureplaybook.github.io/demoHTML/k.json';
             const request = new Request(requestURL);
 
             const response = await fetch(request);
@@ -56,7 +56,8 @@
                 }
             });
 
-        Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
+        //https://demo-live-data.highcharts.com/aapl-c.json
+        Highcharts.getJSON('https://futureplaybook.github.io/demoHTML/k.json', function (data) {
             // Create the chart
             Highcharts.stockChart('container', {
 
