@@ -8,6 +8,13 @@
         <script src="https://code.highcharts.com/stock/modules/data.js"></script>
         <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#nav").load("nav.html");
+            });
+        </script>
+
         <script>
             async function populate() {
 
@@ -57,17 +64,31 @@
             });
 
         //https://demo-live-data.highcharts.com/aapl-c.json
-        Highcharts.getJSON('https://futureplaybook.github.io/demoHTML/k.json', function (data) {
+        Highcharts.getJSON('https://futureplaybook.github.io/demoHTML/s.json', function (data) {
             // Create the chart
             Highcharts.stockChart('container', {
 
 
                 rangeSelector: {
-                    selected: 1
+                    selected: 5
                 },
 
                 title: {
                     text: 'AAPL Stock Price'
+                },
+
+                subtitle: {
+                    text: 'More details here'
+                },
+
+                yAxis: {
+                    title: {
+                        text: 'Exchange rate'
+                    }
+                },
+
+                legend: {
+                    enabled: true
                 },
 
                 series: [{
@@ -84,6 +105,7 @@
         </script>
     </head>
     <body>
+        <div id="nav"></div>
         <div id="container" style="width:100%; height:400px;"></div>
     </body>
 </html>
