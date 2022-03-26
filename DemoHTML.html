@@ -15,55 +15,8 @@
             });
         </script>
         <script>
-            async function populate() {
-
-            const requestURL = 'https://futureplaybook.github.io/demoHTML/k.json';
-            const request = new Request(requestURL);
-
-            const response = await fetch(request);
-            const superHeroesText = await response.text();
-
-            const superHeroes = JSON.parse(superHeroesText);
-            
-            console.log(superHeroes);
-
-            }
-
-            populate();
-
-
-            //var j;
-
-            async function loadNames() {
-                const response = await fetch('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/large-dataset.json');
-                var names = await response.json();
-                //console.log(names); 
-                return names;
-                // logs [{ name: 'Joker'}, { name: 'Batman' }]
-            }
-            const j = loadNames();
-            console.log(j);
-
-
-
-
-
-
-        // https://ruienyuski.github.io/git_test/data.json
-        $.ajax({
-            url: "https://demo-live-data.highcharts.com/aapl-c.json",
-                type:"get",
-                dataType:'json',  
-                success: function(data){
-                console.log(data);
-                },
-                error:function() {
-                console.log("err");
-                }
-            });
-
         //https://demo-live-data.highcharts.com/aapl-c.json
-        Highcharts.getJSON('https://futureplaybook.github.io/demoHTML/s.json', function (data) {
+        Highcharts.getJSON('https://futureplaybook.github.io/demoHTML/k.json', function (data) {
             // Create the chart
             Highcharts.stockChart('container', {
 
