@@ -9,7 +9,6 @@
         <meta property="og:url" content="URL OF YOUR WEBSITE"/>
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
-        <!-- TYPE BELOW IS PROBABLY: "website" or "article" or look on https://ogp.me/#types -->
         <meta property="og:type" content="website"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
@@ -44,10 +43,7 @@
             // https://demo-live-data.highcharts.com/aapl-historical.json
             // https://futureplaybook.github.io/demoHTML/data_SHILLER_PE_RATIO_MONTH.json
             Highcharts.getJSON('data_SHILLER_PE_RATIO_MONTH.json', function (data) {
-            // Create the chart
                 Highcharts.stockChart('container', {
-
-
                     rangeSelector: {
                         selected: 5
                     },
@@ -107,14 +103,16 @@
         </script>
     </head>
     <body>
+        <!-- Navigation bar -->
         <div id="nav"></div>
+        <!-- Main body -->
         <div id="container" style="width:100%; height:400px;"></div>
         <div id="name"></div>
         <div id="lastUpdate"></div>
         <div id="lastValue"></div>
         <div id="min"></div>
         <div id="max"></div>
-        <div id="bottom"></div>
+        <!-- Social buttons -->
         <div class="socializer"
              data-features="32px,circle,opacity,icon-dark,bg-white,pad"
              data-sites="facebook,twitter,linkedin,discord,reddit,email,whatsapp">
@@ -125,5 +123,7 @@
                 socializer( '.socializer' );
             }());
         </script>
+        <!-- Footer -->
+        <div id="bottom"></div>
     </body>
 </html>
